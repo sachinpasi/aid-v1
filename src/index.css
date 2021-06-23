@@ -1,13 +1,176 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --darkblue: #052138;
+  --darkyellow: rgb(251, 178, 47);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Uniform Medium";
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+input::placeholder {
+  color: rgb(17, 24, 39);
+}
+
+@font-face {
+  font-family: "Uniform Light";
+  src: local("Uniform Light"),
+    url(./Fonts/Uniform\ Extra\ Condensed\ Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Uniform Normal";
+  src: local("Uniform Normal"),
+    url(./Fonts/Uniform\ Extra\ Condensed.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Uniform Medium";
+  src: local("Uniform Medium"),
+    url(./Fonts/Uniform\ Extra\ Condensed\ Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Uniform Bold";
+  src: local("Uniform Bold"),
+    url(./Fonts/Uniform\ Extra\ Condensed\ Bold.ttf) format("truetype");
+}
+
+.bg-darkblue {
+  background-color: var(--darkblue);
+}
+
+.bg-nav {
+  background-color: var(--darkblue);
+}
+
+.text-darkblue {
+  color: var(--darkblue);
+}
+
+.bg-darkyellow {
+  background-color: var(--darkyellow);
+}
+
+.text-darkyellow {
+  color: var(--darkyellow);
+}
+.overlaybg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.bg-light-yellow {
+  background-color: rgb(255, 246, 136);
+}
+.bg-servicebutton {
+  background-color: rgb(255, 241, 117);
+}
+.loginwrapper {
+  width: 225px;
+  margin-left: 30px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-bottom: 48px solid rgb(251, 178, 47);
+  border-left: 25px solid transparent;
+  position: relative;
+}
+
+.mainlogin {
+  width: 215px;
+  margin-left: 30px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-left: 25px solid transparent;
+  border-bottom: 48px solid rgb(5, 33, 56);
+  position: absolute;
+  top: -0.2px;
+  left: -45px;
+}
+
+.width95 {
+  width: 95vw;
+}
+
+.navdivider {
+  height: 50%;
+  border-right: 1px solid rgb(255, 255, 255);
+}
+.bannerformtextcolor {
+  color: #4b5563;
+}
+
+.limitedoffer {
+  background: linear-gradient(
+    0.25turn,
+    transparent,
+    rgb(153, 255, 255),
+    transparent
+  );
+  height: 40px;
+  width: 50%;
+  margin: 2rem auto;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.testimonialName {
+  width: 100%;
+  height: 36px;
+  background-color: rgb(77, 77, 77);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 25px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  /* transform: rotate(90deg); */
+  color: rgb(255, 255, 255);
+  font-weight: 200;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+@media (max-width: 1023px) {
+  .bg-nav {
+    background-color: rgb(214, 230, 242);
+  }
+  .mobilenavitembg {
+    background-color: rgb(118, 159, 205);
+  }
+  .mobileAuthItemBg {
+    background-color: var(--darkblue);
+  }
+  .NavActive {
+    justify-content: flex-end !important;
+    border-bottom: 4px solid green;
+  }
 }

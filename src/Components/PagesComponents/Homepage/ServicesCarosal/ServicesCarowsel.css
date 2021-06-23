@@ -1,0 +1,26 @@
+.owl-prev {
+  position: absolute;
+  left: -2%;
+  top: 2%;
+  font-size: 75px !important;
+}
+.owl-next:focus,
+.owl-prev:focus {
+  outline: none;
+}
+.owl-next {
+  font-size: 75px !important;
+  position: absolute;
+  right: -2%;
+  top: 2%;
+}
+@media only screen and (max-width: 600px) {
+  .Ba_nn_ErImg {
+    height: unset;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .Ba_nn_ErImg {
+    height: 485px;
+  }
+}
