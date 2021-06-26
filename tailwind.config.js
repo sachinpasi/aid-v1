@@ -9,7 +9,18 @@ module.exports = {
     color: {
       darkblue: "#052138",
     },
-    extend: {},
+    extend: {
+      width: {
+        "12/25": "48%",
+        "80vw": "80vw",
+        "8/25": "32%",
+      },
+      colors: {
+        darkblue: "#052138",
+        peatch: "rgb(250, 110, 97)",
+        lightVoilet: "rgb(142, 119, 236)",
+      },
+    },
   },
   variants: {
     extend: {},

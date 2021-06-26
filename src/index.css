@@ -6,6 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  outline: 0;
 }
 
 :root {
@@ -17,6 +18,33 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Uniform Medium";
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: #052138;
+  font-weight: 600;
+}
+
+h2 {
+  width: 66%;
+  font-size: 36px;
+  color: #052138;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.025em;
+  line-height: 2.5rem;
+}
+
+h3 {
+  font-size: 25px;
+  text-align: center;
+  color: #4b4b4d;
+  padding: 1rem 0px;
+}
+span {
+  font-size: 12px;
 }
 
 input,
@@ -53,9 +81,9 @@ input::placeholder {
     url(./Fonts/Uniform\ Extra\ Condensed\ Bold.ttf) format("truetype");
 }
 
-.bg-darkblue {
+/* .bg-darkblue {
   background-color: var(--darkblue);
-}
+} */
 
 .bg-nav {
   background-color: var(--darkblue);
@@ -80,6 +108,15 @@ input::placeholder {
 }
 .bg-servicebutton {
   background-color: rgb(255, 241, 117);
+}
+
+.text-pink {
+  color: #ab527d;
+}
+.feature-text {
+  font-size: 24px;
+  line-height: 30px;
+  width: 50%;
 }
 .loginwrapper {
   width: 225px;
@@ -111,6 +148,10 @@ input::placeholder {
 
 .width95 {
   width: 95vw;
+}
+
+.width48 {
+  width: 48%;
 }
 
 .navdivider {
@@ -159,7 +200,17 @@ input::placeholder {
   opacity: 0.9;
 }
 
+.PackageCardHeightandWidth {
+  height: 570px;
+  width: 29%;
+}
+
 @media (max-width: 1023px) {
+  h2 {
+    width: 100%;
+    font-size: 30px;
+  }
+
   .bg-nav {
     background-color: rgb(214, 230, 242);
   }
@@ -172,5 +223,14 @@ input::placeholder {
   .NavActive {
     justify-content: flex-end !important;
     border-bottom: 4px solid green;
+  }
+  .PackageCardHeightandWidth {
+    height: 500px;
+    width: 100%;
+  }
+  .feature-text {
+    font-size: 20px;
+    line-height: 25px;
+    width: 50%;
   }
 }

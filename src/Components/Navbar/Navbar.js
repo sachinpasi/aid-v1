@@ -36,13 +36,13 @@ const Navbar = () => {
 
         <div className="flex justify-evenly items-center">
           <div className="flex justify-evenly items-center">
-            <Link className="mx-3">
+            <Link to="/" className="mx-3">
               <div className="flex justify-center items-center text-darkblue  ">
                 <AiOutlineDownload className="text-3xl mx-1 " />
                 <div className="uppercase text-2xl mx-1">DownlOAD App</div>
               </div>
             </Link>
-            <Link className="mx-3">
+            <Link to="/" className="mx-3">
               <div className="flex justify-center items-center text-darkblue  ">
                 <div className="uppercase text-2xl mx-1">
                   CALL : 1800 150 150
@@ -112,7 +112,7 @@ const Navbar = () => {
         <div className="width95 mx-auto flex justify-between h-11 items-center">
           <div className="hidden lg:block w-60 h-40 bg-white">
             <img
-              className="w-10/12 h-full object-contain  mx-auto flex justify-center items-center"
+              className="w-10/12 h-full object-contain px-2  mx-auto flex justify-center items-center"
               src="assets/images/logo.png"
               alt=""
             />
@@ -132,6 +132,12 @@ const Navbar = () => {
               Active={location.pathname === "/services" ? "true" : ""}
               Name="Services"
               To="/services"
+            />
+            <NavSaprator />
+            <Navitem
+              Active={location.pathname === "/services" ? "true" : ""}
+              Name="Packages"
+              To="/packages"
             />
             <NavSaprator />
             <Navitem

@@ -59,7 +59,7 @@ const Footer = () => {
           style={{ height: "95%" }}
           className="w-11/12 lg:w-36  flex flex-col justify-between items-start "
         >
-          <h2 className="text-white font-semibold text-xl lg:text-2xl uppercase py-4 text-center">
+          <h2 className="text-white w-full font-semibold text-xl lg:text-2xl uppercase py-4 text-left">
             About Us
           </h2>
           <div className="flex justify-center items-center flex-col h-full">
@@ -71,8 +71,8 @@ const Footer = () => {
         </div>
 
         <div className="w-full lg:w-auto  h-full flex justify-between">
-          <div className="w-52 h-auto flex flex-col justify-between items-start ">
-            <h2 className="text-white text-xl lg:text-2xl font-semibold uppercase py-4 text-center">
+          <div className="w-56 h-auto flex flex-col justify-between items-start ">
+            <h2 className="w-full text-left text-white text-xl lg:text-2xl font-semibold uppercase py-4">
               information link
             </h2>
             <div className="flex flex-col justify-between h-full">
@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
 
           <div className="w-52 h-auto flex flex-col justify-between items-start ">
-            <h2 className="text-white font-semibold text-xl lg:text-2xl uppercase py-4 text-center">
+            <h2 className="text-left text-white font-semibold text-xl lg:text-2xl uppercase py-4 ">
               SERVICE LINK
             </h2>
             <div className="flex flex-col justify-between h-full">
@@ -120,7 +120,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col justify-start h-full">
-          <h2 className="text-white font-semibold text-xl lg:text-2xl uppercase py-4 text-left">
+          <h2 className="text-white w-full font-semibold text-xl lg:text-2xl uppercase py-4 text-left">
             DOWNLOAD MOBILE APP
           </h2>
 

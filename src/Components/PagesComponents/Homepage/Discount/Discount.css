@@ -1,7 +1,7 @@
-.owl-prev {
+/* .owl-prev {
   position: absolute;
   left: -4.5%;
-  /* top: 36%; */
+  top: 36%;
   font-size: 75px !important;
 }
 .owl-next:focus,
@@ -12,7 +12,7 @@
   font-size: 75px !important;
   position: absolute;
   right: -4.5%;
-  /* top: 36%; */
+  top: 36%;
 }
 @media only screen and (max-width: 600px) {
   .Ba_nn_ErImg {
@@ -23,4 +23,4 @@
   .Ba_nn_ErImg {
     height: 485px;
   }
-}
+} */
