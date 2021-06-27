@@ -1,15 +1,53 @@
 import React from "react";
+// import OwlCarousel from "react-owl-carousel";
+// import "owl.carousel/dist/assets/owl.carousel.css";
+// import "owl.carousel/dist/assets/owl.theme.default.css";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const Banner = () => {
   return (
     <section
-      style={{
-        background: "url(assets/images/homepage/banner/bannerbg.png)",
-        height: "auto",
-      }}
-      className="h-screen lg:h-auto   bg-cover bg-no-repeat"
+      // style={{
+      //   background: "url(assets/images/homepage/banner/bannerbg.png)",
+      //   height: "auto",
+      // }}
+      className="h-screen lg:h-448px   bg-cover bg-no-repeat relative"
     >
-      <div className="w-11/12 h-full mx-auto flex justify-center items-center lg:justify-between ">
+      <div className="w-full h-full">
+        <Carousel
+          autoPlay={true}
+          showThumbs={false}
+          showStatus={false}
+          emulateTouch={true}
+          infiniteLoop={true}
+        >
+          <div className="w-screen h-screen lg:h-448px">
+            <img
+              className="w-full  object-cover"
+              src="assets/images/homepage/banner/bannerbg.png"
+              alt=""
+            />
+          </div>
+          <div className="w-screen h-screen lg:h-448px">
+            <img
+              className="w-full h-full object-cover"
+              src="assets/images/homepage/banner/2.jpeg"
+              alt=""
+            />
+          </div>
+          <div className="w-screen h-screen lg:h-448px">
+            <img
+              className="w-full h-full object-cover"
+              src="assets/images/homepage/banner/3.jpeg"
+              alt=""
+            />
+          </div>
+        </Carousel>
+      </div>
+
+      <div className="absolute z-30 lg:right-12 top-0 w-full  lg:w-auto h-full mx-auto flex justify-center items-center lg:justify-between ">
         <div></div>
         <div className="w-80 md:w-4/5 lg:w-80 my-5 bg-light-yellow rounded-xl shadow-2xl ">
           <h5 className="text-3xl py-2 text font-medium text-center">

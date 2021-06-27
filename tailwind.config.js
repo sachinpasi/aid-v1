@@ -15,6 +15,9 @@ module.exports = {
         "80vw": "80vw",
         "8/25": "32%",
       },
+      height: {
+        "448px": "448px",
+      },
       colors: {
         darkblue: "#052138",
         peatch: "rgb(250, 110, 97)",
