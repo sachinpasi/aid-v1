@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useDispatch } from "react-redux";
-
-import { API } from "../../../API";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { toast } from "react-toastify";
+
+import { API } from "../../../API";
 import { BOOKSERVICE } from "../../../Redux/_features/_serviceBookingSlice";
+import { selectUser } from "../../../Redux/_features/_userSlice";
+import { useHistory } from "react-router-dom";
 
 const Banner = () => {
   const [Services, setServices] = useState([]);
+  const [LocalityList, setLocalityList] = useState([]);
   const [ChildServices, setChildServices] = useState(null);
+
+  const [SelectedLocalityItem, setSelectedLocalityItem] = useState();
   const [SelectedParentService, setSelectedParentService] = useState();
   const [SelectedGrandChildServices, setSelectedGrandChildServices] =
     useState();
   const [SelectedChildService, setSelectedChildService] = useState();
 
-  const [isSubmitButtonPressed, setisSubmitButtonPressed] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector(selectUser);
 
   const Input = ({ label, register, required, placeholder, type }) => (
     <input
@@ -52,7 +59,14 @@ const Banner = () => {
         <option selected disabled hidden>
           Time
         </option>
-        <option value="11 AM">11 AM</option>
+        <option value="10:00 AM">10 AM</option>
+        <option value="11:00 AM">11 AM</option>
+        <option value="12:00 AM">12 AM</option>
+        <option value="01:00 PM">01 PM</option>
+        <option value="02:00 PM">02 PM</option>
+        <option value="03:00 PM">03 PM</option>
+        <option value="04:00 PM">04 PM</option>
+        <option value="05:00 PM">05 PM</option>
       </select>
     </>
   ));
@@ -61,6 +75,14 @@ const Banner = () => {
     const res = await axios.get(`${API}/parent-service/show`);
     if (res.status === 200) {
       setServices(res.data.data);
+    }
+  };
+
+  const FetchAllLocality = async () => {
+    const res = await axios.get(`${API}/locality/list`);
+    console.log(res.data);
+    if (res.status === 200) {
+      setLocalityList(res.data.data);
     }
   };
 
@@ -80,23 +102,66 @@ const Banner = () => {
     formState: { errors },
   } = useForm();
 
-  const HandleWidgetSubmit = (data) => {
-    const { date, mobileNo, name, time } = data;
-    dispatch(
-      BOOKSERVICE({
-        name: name,
-        date: date,
-        mobileNo: mobileNo,
-        SelectedParentService: SelectedParentService,
-        SelectedGrandChildService: SelectedGrandChildServices,
-        SelectedChildService: SelectedChildService,
-        time: time,
-      })
-    );
+  const HandleWidgetSubmit = async (data) => {
+    if (user.isLoggedIn) {
+      const { date, mobileNo, name, time, address } = data;
+
+      var newdate = date.replace(/-/g, "/");
+
+      function toTimestamp(strDate) {
+        var datum = Date.parse(strDate);
+        return datum / 1000;
+      }
+      var dateTime = `${date} ${time}`;
+      var timestamp = toTimestamp(dateTime);
+      console.log(timestamp);
+
+      const res = await axios.post(
+        `${API}/order/checkout`,
+        {
+          name: name,
+          mobile: mobileNo,
+          parent_service_id: SelectedParentService,
+          child_service_id: SelectedChildService,
+          service_date: newdate,
+          service_time: timestamp,
+          address: address,
+          locality_id: SelectedLocalityItem,
+        },
+        { headers: { Authorization: `Bearer ${user.token}` } }
+      );
+      console.log(res);
+      if (res.status === 200) {
+        window.setTimeout(function () {
+          history.push("/profile/orders");
+        }, 3000);
+
+        return toast.success("Service Booked Successfully!");
+      }
+
+      dispatch(
+        BOOKSERVICE({
+          name: name,
+          date: date,
+          mobileNo: mobileNo,
+          SelectedParentService: SelectedParentService,
+          SelectedGrandChildService: SelectedGrandChildServices,
+          SelectedChildService: SelectedChildService,
+          SelectedLocalityItem: SelectedLocalityItem,
+          Address: address,
+          time: time,
+        })
+      );
+    } else
+      window.setTimeout(function () {
+        history.push("/profile");
+      }, 2000);
+    return toast.error("Please Login First");
   };
 
   useEffect(() => {
     FetchAllServices();
+    FetchAllLocality();
   }, []);
 
   useEffect(() => {
@@ -221,16 +286,40 @@ const Banner = () => {
                 )}
               </>
             )}
+            <div className="flex">
+              <div className="w-11/12 mr-1">
+                <Input type="Date" label="date" register={register} required />
+              </div>
+              <div className="w-11/12">
+                <TimeSelect label="time" {...register("time")} />
+              </div>
+            </div>
 
-            <Input type="Date" label="date" register={register} required />
-            <TimeSelect label="time" {...register("time")} />
+            <select
+              value={SelectedLocalityItem}
+              onChange={(e) => {
+                setSelectedLocalityItem(e.target.value);
+              }}
+              className="w-full bg-gray-100 h-8 rounded-sm text-xl my-0.5  px-2 uppercase "
+            >
+              <option selected disabled hidden>
+                Locality
+              </option>
+              {LocalityList?.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+
             <Address
               placeholder="Address"
               register={register}
               label="address"
               required
             />
-            {(errors.name ||
+            {(errors.Checkbox ||
+              errors.name ||
               errors.mobileNo ||
               errors.serviceType ||
               errors.date) && (
@@ -241,6 +330,7 @@ const Banner = () => {
                 className="h-6 w-6 mr-4"
                 type="checkbox"
                 value="Agree"
+                {...register("Checkbox", { required: true })}
               ></input>
               <p className="text-white text-base"> I Agree to Aid 24x7</p>
             </div>

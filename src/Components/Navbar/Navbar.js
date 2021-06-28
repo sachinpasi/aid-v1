@@ -60,7 +60,7 @@ const Navbar = () => {
                 <Link
                   style={{ marginTop: "3.1rem" }}
                   className="absolute flex justify-center item-center"
-                  to="/profile"
+                  to="/profile/orders"
                 >
                   <svg
                     stroke="currentColor"
@@ -140,7 +140,7 @@ const Navbar = () => {
           <div className="hidden lg:block w-60 h-40 bg-white">
             <img
               className="w-10/12 h-full object-contain px-2  mx-auto flex justify-center items-center"
-              src="assets/images/logo.png"
+              src="/assets/images/logo.png"
               alt=""
             />
           </div>
@@ -173,7 +173,7 @@ const Navbar = () => {
               To="/amc"
             />
             <NavSaprator />
-            <Navitem MobHidden="true" Name="fEEDBACK" To="/" />
+            <Navitem MobHidden="true" Name="fEEDBACK" To="/feedback" />
             <NavSaprator />
             <Navitem
               Active={location.pathname === "/contact" ? "true" : ""}

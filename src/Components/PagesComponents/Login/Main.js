@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Redirect, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import { API } from "../../../API";
 import { LOGIN } from "../../../Redux/_features/_userSlice";
@@ -31,8 +32,12 @@ const Main = () => {
       ...data,
     });
     console.log(res.data);
-    setisOtpSent(true);
+    if (res.status === 200) {
+      setisOtpSent(true);
+      return toast.success(`OTP Sent To ${data.mobile} `);
+    }
   };
+  console.log(errors);
 
   const onOtpSubmit = async (data) => {
     const { otp } = data;
@@ -99,11 +104,17 @@ const Main = () => {
                   className="w-full h-11 px-4 rounded-md text-gray-700 placeholder-gray-500 outline-none "
                   type="text"
                   placeholder="+91"
-                  {...register("mobile", { required: true })}
+                  {...register("mobile", { required: true, minLength: 10 })}
                 />
-                {errors.mobile && (
+                {errors.mobile?.type === "required" && (
                   <span className="ml-4 py-1 text-red-500">
                     * This field is required
+                  </span>
+                )}
+
+                {errors.mobile?.type === "minLength" && (
+                  <span className="ml-4 py-1 text-red-500">
+                    * The Mobile No Must Be Of 10 Digits !
                   </span>
                 )}
                 {!isOtpSent && (
@@ -133,11 +144,17 @@ const Main = () => {
                     className="w-full h-11 px-4 rounded-md text-gray-700 placeholder-gray-500 outline-none "
                     type="text"
                     placeholder="Please Enter The Otp Sent To Your Mobile No"
-                    {...register("otp", { required: true })}
+                    {...register("otp", { required: true, minLength: "4" })}
                   />
-                  {errors.otp && (
+                  {errors.otp?.type === "required" && (
                     <span className="ml-4 py-1 text-red-500">
                       * This field is required
+                    </span>
+                  )}
+
+                  {errors.otp?.type === "minLength" && (
+                    <span className="ml-4 py-1 text-red-500">
+                      * Please Enter Valid Otp
                     </span>
                   )}
                   <button

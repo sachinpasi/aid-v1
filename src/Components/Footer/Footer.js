@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer
       style={{
-        background: "url(assets/images/footer/bg.jpg) rgb(8, 48, 79)",
+        background: "url(/assets/images/footer/bg.jpg) rgb(8, 48, 79)",
         backgroundBlendMode: "multiply",
         backgroundPosition: "0% 0%",
         backgroundSize: "cover",
@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="flex w-3/4 lg:w-auto justify-center items-center flex-col h-full ">
             <img
               className="w-52 lg:w-11/12 h-28 object-contain py-2 px-4 bg-white border-4 border-yellow-400"
-              src="assets/images/Logo.png"
+              src="/assets/images/Logo.png"
               alt=""
             ></img>
             <div
