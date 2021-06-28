@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { API } from "../../../API";
 import { selectUser } from "../../../Redux/_features/_userSlice";
 import Sidebar from "./Sidebar";
@@ -12,10 +13,11 @@ const OrderDetailsComponent = () => {
   const [ChildServices, setChildServices] = useState(null);
 
   const user = useSelector(selectUser);
+  const { id } = useParams();
 
   const FetchOrderDetails = async () => {
     setisLoading(true);
-    const res = await axios.get(`${API}/order/showById/10`, {
+    const res = await axios.get(`${API}/order/showById/${id}`, {
       headers: { Authorization: `Bearer ${user.token}` },
     });
     console.log(res.data.data);
