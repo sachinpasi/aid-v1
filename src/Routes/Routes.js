@@ -10,6 +10,7 @@ import Profile from "../Pages/Profile/Profile";
 import MyOrders from "../Pages/Profile/MyOrders";
 import OrderDetails from "../Pages/Profile/OrderDetails";
 import PrivateRoute from "./PrivateRoute";
+import Services from "../Pages/Services";
 
 const Routes = () => {
   return (
@@ -17,6 +18,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Homepage} />
         <Route path="/login" exact component={Login} />
+        <Route path="/services" exact component={Services} />
         <Route path="/packages" exact component={Packages} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/amc" exact component={Amc} />
