@@ -14,6 +14,7 @@ const OurServices = () => {
             Image="assets/images/homepage/services/ac.png"
             Name="AC SERVICE"
             BgColor="#D6ECEF"
+            To="/ac-service"
           />
           <ServicesItem
             Image="assets/images/homepage/services/fridge.png"

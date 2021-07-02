@@ -1,6 +1,6 @@
 import React from "react";
-
-const ServicesItem = ({ BgColor, Name, Image }) => {
+import { Link } from "react-router-dom";
+const ServicesItem = ({ BgColor, Name, Image, To }) => {
   return (
     <div className="relative lg:my-4">
       <div className="flex justify-center items-center">
@@ -30,9 +30,12 @@ const ServicesItem = ({ BgColor, Name, Image }) => {
         </li>
       </ul>
       <div className="flex justify-center items-center absolute right-3 bottom-4 lg:bottom-2">
-        <button className="bg-servicebutton text-xl font-semibold tracking-wider py-2 px-6 rounded-md text-gray-800 ">
+        <Link
+          to={To ? `${To}` : `/`}
+          className="bg-servicebutton text-xl font-semibold tracking-wider py-2 px-6 rounded-md text-gray-800 "
+        >
           Book Now
-        </button>
+        </Link>
       </div>
     </div>
   );

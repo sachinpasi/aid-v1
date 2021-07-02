@@ -1,6 +1,7 @@
-import React from "react";
-
+import React, { useState } from "react";
+import BookingWidget from "../../Common/BookingWidget";
 const Banner = () => {
+  const [isBookButtonPressed, setisBookButtonPressed] = useState(false);
   return (
     <section
       style={{
@@ -8,9 +9,9 @@ const Banner = () => {
         backgroundRepeat: "no-repeat",
         height: "540px",
       }}
-      className=" w-full  bg-contain "
+      className=" w-full  bg-contain relative overflow-x-hidden "
     >
-      <div className="w-80vw h-full mx-auto flex justify-between items-center">
+      <div className="w-80vw h-full mx-auto flex justify-between items-center ">
         <img
           style={{
             width: "35%",
@@ -19,10 +20,33 @@ const Banner = () => {
           src="assets/images/services/banner/text.png"
           alt=""
         />
-        <div className="flex justify-end items-start  h-full pt-10">
-          <button className="bg-darkblue py-2 px-10 text-2xl rounded-xl text-white border-2 border-green-200">
-            Book Online
-          </button>
+        <div className="w-full h-full mt-0 flex justify-end items-center  relative">
+          <div className="w-full flex justify-end items-center h-auto relative">
+            <div
+              style={{
+                transition: "all 0.2s ease",
+              }}
+              className={`absolute ${
+                isBookButtonPressed
+                  ? "right-0 opacity-100"
+                  : "-right-full opacity-0"
+              } `}
+            >
+              <BookingWidget />
+            </div>
+          </div>
+          <div
+            className={`flex justify-end items-start absolute  h-full pt-10 ${
+              isBookButtonPressed ? "hidden" : "visible"
+            }`}
+          >
+            <button
+              onClick={() => setisBookButtonPressed(true)}
+              className="bg-darkblue py-2 px-10 text-2xl rounded-xl text-white border-2 border-green-200"
+            >
+              Book Online
+            </button>
+          </div>
         </div>
       </div>
     </section>
