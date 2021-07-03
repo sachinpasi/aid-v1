@@ -1,16 +1,16 @@
 import React from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 import Homepage from "../Pages/Homepage";
 import Packages from "../Pages/Packages";
 import Amc from "../Pages/Amc";
 import Contact from "../Pages/Contact";
 import Login from "../Pages/Login";
+import ServicesDetails from "../Pages/Services/ServicesDetails";
 import Profile from "../Pages/Profile/Profile";
-import MyOrders from "../Pages/Profile/MyOrders";
-import OrderDetails from "../Pages/Profile/OrderDetails";
-import PrivateRoute from "./PrivateRoute";
-import AC_Service from "../Pages/Services/AC_Service";
+import Bookings from "../Pages/Profile/Bookings";
+import BookingDetails from "../Pages/Profile/BookingDetails";
 
 const Routes = () => {
   return (
@@ -18,16 +18,17 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Homepage} />
         <Route path="/login" exact component={Login} />
-        <Route path="/ac-service" exact component={AC_Service} />
+        <Route path="/services/:id" exact component={ServicesDetails} />
         <Route path="/packages" exact component={Packages} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/amc" exact component={Amc} />
+
         <PrivateRoute path="/profile" exact component={Profile} />
-        <PrivateRoute path="/profile/orders" exact component={MyOrders} />
+        <PrivateRoute path="/profile/bookings" exact component={Bookings} />
         <PrivateRoute
-          path="/profile/orders/:id"
+          path="/profile/booking/:id"
           exact
-          component={OrderDetails}
+          component={BookingDetails}
         />
       </Switch>
     </Router>

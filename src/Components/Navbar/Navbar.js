@@ -60,7 +60,7 @@ const Navbar = () => {
                 <Link
                   style={{ marginTop: "3.1rem" }}
                   className="absolute flex justify-center item-center"
-                  to="/profile/orders"
+                  to="/profile/bookings"
                 >
                   <svg
                     stroke="currentColor"
@@ -201,7 +201,7 @@ const Navbar = () => {
               To="/"
               Color="#ffcc29"
             />{" "}
-            <AuthNavItem to="/" Name="Login" DesktopHidden="true" />
+            <AuthNavItem To="/login" Name="Login" DesktopHidden="true" />
           </ul>
         </div>
       </div>

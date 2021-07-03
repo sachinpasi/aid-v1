@@ -17,7 +17,7 @@ const Banner = () => {
             width: "35%",
           }}
           className=""
-          src="assets/images/services/banner/text.png"
+          src="/assets/images/services/banner/text.png"
           alt=""
         />
         <div className="w-full h-full mt-0 flex justify-end items-center  relative">

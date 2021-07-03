@@ -1,6 +1,6 @@
 import React from "react";
-import MainWrapper from "../../Components/Wrapper/MainWrapper";
 import Main from "../../Components/PagesComponents/Profile/Main";
+import MainWrapper from "../../Components/Wrapper/MainWrapper";
 
 const Profile = () => {
   return (
