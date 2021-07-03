@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaAddressCard } from "react-icons/fa";
 import { FiPackage } from "react-icons/fi";
-import { MdCardGiftcard, MdChatBubble } from "react-icons/md";
+import { MdHistory, MdChatBubble } from "react-icons/md";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 
@@ -34,7 +34,8 @@ const Sidebar = () => {
           Icon={FaUserCircle}
         />
         <SidebarItem Name="Account Setting" Icon={FiPackage} />
-        <SidebarItem Name="Gift Card" Icon={MdCardGiftcard} />
+        <SidebarItem Name="Manage Address" Icon={FaAddressCard} />
+        <SidebarItem Name="Payment History" Icon={MdHistory} />
         <SidebarItem Name="My Chats" Icon={MdChatBubble} />
         <div
           onClick={HandleSignOut}

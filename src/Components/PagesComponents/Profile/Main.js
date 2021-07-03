@@ -14,7 +14,7 @@ const Main = () => {
         <div className="my-8">
           <p className="text-3xl font-semibold">Edit Profile</p>
           <div className="w-2/4 flex flex-col justify-center items-start">
-            <div className="flex justify-center items-center w-full">
+            <div className="flex flex-col justify-center items-center w-full">
               <div className="w-48 h-48 rounded-full bg-gray-400 flex justify-end items-end">
                 <div className="w-8 h-8 rounded-full bg-darkblue flex justify-center items-center mb-4 mr-4 cursor-pointer">
                   <MdEdit
@@ -23,6 +23,7 @@ const Main = () => {
                   />
                 </div>
               </div>
+              <p className="text-lg my-2">Profile Picture</p>
             </div>
             <div className="flex flex-col justify-center items-center w-full my-4">
               <div className="flex w-full justify-between my-2 ">
