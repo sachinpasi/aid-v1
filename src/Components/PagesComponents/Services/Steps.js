@@ -3,17 +3,30 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { API } from "../../../API";
+import { SHOW_WIDGET } from "../../../Redux/_features/_showBookingWidgetSlice";
 
 const Steps = ({ Data }) => {
   const [Services, setServices] = useState([]);
+
+  const dispatch = useDispatch();
 
   const FetchAllServices = async () => {
     const res = await axios.get(`${API}/parent-service/show`);
     if (res.status === 200) {
       setServices(res.data.data);
     }
+  };
+
+  const HandleBookService = () => {
+    dispatch(
+      SHOW_WIDGET({
+        showWidget: true,
+      })
+    );
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -48,7 +61,7 @@ const Steps = ({ Data }) => {
                 </div>
                 <div className="border-b-2 h-12 flex justify-center items-center">
                   <p className="uppercase font-medium text-2xl tracking-wide px-8 ">
-                    Choose Type Of ac
+                    Choose Type Of Service
                   </p>
                 </div>
               </div>
@@ -90,7 +103,10 @@ const Steps = ({ Data }) => {
               </div>
             </div>
             <div className="flex justify-start items-center w-full my-4">
-              <button className="px-8 py-2 bg-darkblue rounded-lg text-white text-2xl uppercase">
+              <button
+                onClick={HandleBookService}
+                className="px-8 py-2 bg-darkblue rounded-lg text-white text-2xl uppercase"
+              >
                 Book Your {Data?.title}
               </button>
             </div>

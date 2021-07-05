@@ -23,6 +23,7 @@ module.exports = {
         peatch: "rgb(250, 110, 97)",
         lightVoilet: "rgb(142, 119, 236)",
         sidenavactive: "#2B4F60",
+        darkYellow: "rgb(251, 178, 47)",
       },
     },
   },

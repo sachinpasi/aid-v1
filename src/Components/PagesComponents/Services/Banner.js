@@ -1,8 +1,16 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectShowWidget } from "../../../Redux/_features/_showBookingWidgetSlice";
 import BookingWidget from "../../Common/BookingWidget";
 const Banner = ({ Data }) => {
   console.log(Data);
+  const { showWidget } = useSelector(selectShowWidget);
+  console.log(showWidget);
   const [isBookButtonPressed, setisBookButtonPressed] = useState(false);
+  useEffect(() => {
+    setisBookButtonPressed(showWidget);
+  }, [showWidget]);
   return (
     <section
       style={{
@@ -13,14 +21,14 @@ const Banner = ({ Data }) => {
       className=" w-full  bg-contain relative overflow-x-hidden bg-no-repeat "
     >
       <div className="w-80vw h-full mx-auto flex justify-between items-center ">
-        <img
+        {/* <img
           style={{
             width: "35%",
           }}
           className=""
           src="/assets/images/services/banner/text.png"
           alt=""
-        />
+        /> */}
         <div className="w-full h-full mt-0 flex justify-end items-center  relative">
           <div className="w-full flex justify-end items-center h-auto relative">
             <div

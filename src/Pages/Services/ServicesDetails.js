@@ -5,10 +5,13 @@ import Steps from "../../Components/PagesComponents/Services/Steps";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { API } from "../../API";
+import { useDispatch } from "react-redux";
+import { REMOVE_SHOW_WIDGET } from "../../Redux/_features/_showBookingWidgetSlice";
 
 const ServicesDetails = () => {
   const [Data, setData] = useState();
   const { id } = useParams();
+  const dispatch = useDispatch();
   const HandleServices = async () => {
     if (id !== undefined) {
       const res = await axios.get(`${API}/parent-service/get/${id}`);
@@ -21,6 +24,7 @@ const ServicesDetails = () => {
   useEffect(() => {
     HandleServices();
     window.scrollTo(0, 0);
+    dispatch(REMOVE_SHOW_WIDGET());
   }, [id]);
   return (
     <MainWrapper>

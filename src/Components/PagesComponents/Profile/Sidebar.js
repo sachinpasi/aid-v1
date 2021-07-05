@@ -17,7 +17,7 @@ const Sidebar = () => {
   };
   return (
     <div
-      style={{ background: "#194350" }}
+      style={{ background: "#052138" }}
       className="w-1/6  flex flex-col justify-between   px-4 py-24"
     >
       <div className="flex flex-col justify-center items-start">
@@ -55,7 +55,7 @@ const SidebarItem = ({ Active, To, Name, Icon }) => (
   <Link
     to={`/${To}`}
     className={`my-1 flex justify-start items-center px-4 py-2 ${
-      Active ? "bg-darkblue   rounded-md" : ""
+      Active ? "bg-darkYellow font-medium   rounded-md" : ""
     } `}
   >
     {Icon && (
