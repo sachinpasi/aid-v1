@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const ServicesItem = ({ BgColor, Name, Image, To }) => {
+import ReactHtmlParser from "react-html-parser";
+const ServicesItem = ({ BgColor, Name, Image, To, Points }) => {
   return (
     <div className="relative lg:my-4">
       <div className="flex justify-center items-center">
@@ -11,6 +12,7 @@ const ServicesItem = ({ BgColor, Name, Image, To }) => {
         className=" h-60 lg:h-64 flex justify-center items-center my-2 mx-auto"
       >
         <img
+          loading="lazy"
           style={{
             width: "95%",
             height: "92%",
@@ -20,14 +22,8 @@ const ServicesItem = ({ BgColor, Name, Image, To }) => {
           alt=""
         />
       </div>
-      <ul className="relative py-2 w-auto  ml-6  list-disc">
-        <li className="text-lg  text-gray-600">AC Repair &amp; AC Service</li>
-        <li className="text-lg  text-gray-600 ">
-          AC Installation &amp; Gas-filling
-        </li>
-        <li className="text-lg w-7/12 lg:w-full  text-gray-700 font-semibold tracking-wide">
-          Up to 90-Days Aid24x7 Repair Warranty
-        </li>
+      <ul className="relative py-2 w-auto  ml-6  list-disc text-lg  text-gray-600 ">
+        {ReactHtmlParser(Points)}
       </ul>
       <div className="flex justify-center items-center absolute right-3 bottom-4 lg:bottom-2">
         <Link

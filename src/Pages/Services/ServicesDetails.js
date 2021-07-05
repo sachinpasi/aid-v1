@@ -10,18 +10,21 @@ const ServicesDetails = () => {
   const [Data, setData] = useState();
   const { id } = useParams();
   const HandleServices = async () => {
-    const res = await axios.get(`${API}/parent-service/get/${id}`);
-    if (res.status === 200) {
-      setData(res.data.data);
+    if (id !== undefined) {
+      const res = await axios.get(`${API}/parent-service/get/${id}`);
+      if (res.status === 200) {
+        setData(res.data.data);
+      }
     }
   };
 
   useEffect(() => {
     HandleServices();
+    window.scrollTo(0, 0);
   }, [id]);
   return (
     <MainWrapper>
-      <Banner />
+      <Banner Data={Data} />
       <Steps Data={Data} />
     </MainWrapper>
   );

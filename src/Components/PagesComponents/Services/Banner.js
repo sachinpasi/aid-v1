@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import BookingWidget from "../../Common/BookingWidget";
-const Banner = () => {
+const Banner = ({ Data }) => {
+  console.log(Data);
   const [isBookButtonPressed, setisBookButtonPressed] = useState(false);
   return (
     <section
       style={{
-        background: "url(/assets/images/services/banner/bannerbg.png)",
+        background: `url(https://codeiator.com/aidassets/${Data?.banner})`,
         backgroundRepeat: "no-repeat",
         height: "540px",
       }}
-      className=" w-full  bg-contain relative overflow-x-hidden "
+      className=" w-full  bg-contain relative overflow-x-hidden bg-no-repeat "
     >
       <div className="w-80vw h-full mx-auto flex justify-between items-center ">
         <img
