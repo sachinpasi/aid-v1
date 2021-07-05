@@ -70,6 +70,12 @@ const Main = () => {
       headers: { Authorization: `Bearer ${user.token}` },
     });
     console.log(res.data.data);
+    if (res.status === 200) {
+      if (!res.data.data.otp) {
+        toast.success("Profile Updated Sucessfully");
+      }
+    }
+
     if (res.data.data.otp) {
       setIsOtpSent(true);
     }
