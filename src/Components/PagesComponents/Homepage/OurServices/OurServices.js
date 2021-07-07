@@ -24,8 +24,9 @@ const OurServices = () => {
           Our SERVICES
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-8">
-          {Services?.slice(0, 6).map((item) => (
+          {Services?.slice(0, 6).map((item, index) => (
             <ServicesItem
+              key={index}
               Image={`https://codeiator.com/aidassets/${item.thumbnail}`}
               Name={item.title}
               BgColor={item.color}

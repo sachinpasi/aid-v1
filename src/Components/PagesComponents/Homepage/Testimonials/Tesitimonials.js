@@ -6,7 +6,7 @@ const Tesitimonials = () => {
   return (
     <>
       <section className="w-full h-full">
-        <div class="w-full flex-col lg:w-11/12 h-full mx-auto flex justify-center items-center py-4">
+        <div className="w-full flex-col lg:w-11/12 h-full mx-auto flex justify-center items-center py-4">
           <div className="flex justify-evenly  lg:w-full">
             <h1 className="text-5xl uppercase font-bold w-auto text-darkblue">
               Our Testimonials

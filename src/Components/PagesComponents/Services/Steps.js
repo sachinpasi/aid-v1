@@ -52,8 +52,8 @@ const Steps = ({ Data }) => {
             <p className="text-3xl font-semibold text-darkblue uppercase">
               BOOK YOUR {Data?.title} IN 4 EASY STEPS :
             </p>
-            <div className="flex justify-between flex-col items-start flex-wrap w-full my-4">
-              <div className="flex justify-start items-center w-full my-4">
+            <div className="flex justify-startitems-start flex-wrap w-full my-4">
+              <div className="flex justify-start items-center w-46percent my-4">
                 <div>
                   <div className="w-12 h-12 flex justify-center items-center bg-blue-400 rounded-md mr-4 ">
                     <p className="text-3xl font-semibold 8">1</p>
@@ -65,7 +65,7 @@ const Steps = ({ Data }) => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-start items-center w-full my-4">
+              <div className="flex justify-start items-center w-46percent  my-4">
                 <div>
                   <div className="w-12 h-12 flex justify-center items-center bg-green-400 rounded-md mr-4 ">
                     <p className="text-3xl font-semibold 8">2</p>
@@ -77,7 +77,7 @@ const Steps = ({ Data }) => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-start items-center w-full my-4">
+              <div className="flex justify-start items-center w-46percent  my-4">
                 <div>
                   <div className="w-12 h-12 flex justify-center items-center bg-yellow-400 rounded-md mr-4 ">
                     <p className="text-3xl font-semibold 8">3</p>
@@ -89,7 +89,7 @@ const Steps = ({ Data }) => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-start items-center w-full my-4">
+              <div className="flex justify-start items-center w-46percent my-4">
                 <div>
                   <div className="w-12 h-12 flex justify-center items-center bg-red-400 rounded-md mr-4 ">
                     <p className="text-3xl font-semibold 8">4</p>
@@ -112,35 +112,53 @@ const Steps = ({ Data }) => {
             </div>
           </div>
 
-          <div className="w-5/12 border-b-2 border-2 px-2 ">
-            <p className="text-2xl font-medium text-left border-b-2 py-2 uppercase">
-              Other {Data?.title}
-            </p>
-            {console.log(Data)}
-            <div className="flex justify-between items-center flex-col my-4 mb-0">
-              {Data?.child.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex justify-between items-center w-full  border-b-2 py-3"
-                >
-                  <div className="w-20  h-16 ">
-                    <img
-                      className="w-full h-full object-cover"
-                      src={`https://codeiator.com/aidassets/${item?.icon_path}`}
-                      alt=""
-                    />
+          <div className="w-5/12">
+            <div className=" border-b-2 border-2 px-2 ">
+              <p className="text-2xl font-medium text-left border-b-2 py-2 uppercase">
+                Other {Data?.title}
+              </p>
+              {console.log(Data)}
+              <div className="flex justify-between items-center flex-col my-4 mb-0">
+                {Data?.child.map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex justify-between items-center w-full  border-b-2 py-3"
+                  >
+                    <div className="w-20  h-16 ">
+                      <img
+                        className="w-full h-full object-cover"
+                        src={`https://codeiator.com/aidassets/${item?.icon_path}`}
+                        alt=""
+                      />
+                    </div>
+                    <div className="w-8/12">
+                      <p className="text-xl">{item?.title}</p>
+                    </div>
                   </div>
-                  <div className="w-8/12">
-                    <p className="text-xl">{item?.title}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div className="border-2 my-4 px-2 ">
+              <p className="text-2xl font-medium text-center border-b-2 py-2 uppercase">
+                Other Appliances Services
+              </p>
+              <div className="w-full flex justify-start items-center flex-col">
+                {Services?.map((item, index) => (
+                  <OtherAppliance
+                    key={index}
+                    Icon={`https://codeiator.com/aidassets/${item?.icon_path}`}
+                    Name={item.title}
+                    To={`/services/${item.id}`}
+                  />
+                ))}{" "}
+              </div>
             </div>
           </div>
         </div>
 
         <div className="flex justify-between items-start py-8">
-          <div className="w-full flex  justify-start items-center flex-wrap my-8">
+          {/* <div className="w-full flex  justify-start items-center flex-wrap my-8">
             <div className="w-1/4 my-8">
               <img
                 className="w-full h-full object-contain"
@@ -176,23 +194,7 @@ const Steps = ({ Data }) => {
                 alt=""
               />
             </div>
-          </div>
-
-          <div className="w-5/12 border-2 my-4 px-2 ">
-            <p className="text-2xl font-medium text-center border-b-2 py-2 uppercase">
-              Other Appliances Services
-            </p>
-            <div className="w-full flex justify-start items-center flex-col">
-              {Services?.map((item, index) => (
-                <OtherAppliance
-                  key={index}
-                  Icon={`https://codeiator.com/aidassets/${item?.icon_path}`}
-                  Name={item.title}
-                  To={`/services/${item.id}`}
-                />
-              ))}{" "}
-            </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

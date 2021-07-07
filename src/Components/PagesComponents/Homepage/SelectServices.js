@@ -23,7 +23,7 @@ const SelectServices = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 className="text-white text-2xl"
                 height="1em"
@@ -48,7 +48,7 @@ const SelectServices = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 className="text-white text-2xl"
                 height="1em"
