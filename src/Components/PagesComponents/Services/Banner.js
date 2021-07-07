@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectShowWidget } from "../../../Redux/_features/_showBookingWidgetSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectShowWidget,
+  REMOVE_SHOW_WIDGET,
+} from "../../../Redux/_features/_showBookingWidgetSlice";
 import BookingWidget from "../../Common/BookingWidget";
 const Banner = ({ Data }) => {
   console.log(Data);
   const { showWidget } = useSelector(selectShowWidget);
   console.log(showWidget);
   const [isBookButtonPressed, setisBookButtonPressed] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const HandleHideWidget = () => {
+    console.log("clickdd");
+    dispatch(REMOVE_SHOW_WIDGET());
+    setisBookButtonPressed(false);
+  };
+
   useEffect(() => {
     setisBookButtonPressed(showWidget);
   }, [showWidget]);
@@ -41,6 +53,15 @@ const Banner = ({ Data }) => {
                   : "-right-full opacity-0"
               } `}
             >
+              <div className="flex justify-end items-centerw-full -mr-8 ">
+                <p
+                  className="text-3xl cursor-pointer bg-white w-9 flex justify-center items-center rounded-full  "
+                  onClick={HandleHideWidget}
+                >
+                  x
+                </p>
+              </div>
+
               <BookingWidget />
             </div>
           </div>
