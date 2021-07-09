@@ -110,6 +110,59 @@ const Steps = ({ Data }) => {
                 Book Your {Data?.title}
               </button>
             </div>
+
+            <div className="flex justify-start items-center flex-wrap">
+              <div className=" my-4 flex flex-col justify-center items-center">
+                <img
+                  className="w-2/4 object-contain"
+                  src="/assets/images/services/bottom/1.png"
+                  alt=""
+                />
+                <p className="text-2xl w-52 my-4 text-center  bg-darkblue text-white px-6 py-1 rounded-md border-2 border-gray-400">
+                  TECHNICIANS
+                </p>
+              </div>
+              <div className=" my-4 flex flex-col justify-center items-center">
+                <img
+                  className="w-2/4 object-contain"
+                  src="/assets/images/services/bottom/2.png"
+                  alt=""
+                />
+                <p className="text-2xl w-52 my-4 text-center  bg-darkblue text-white px-6 py-1 rounded-md border-2 border-gray-400">
+                  REVIEWS
+                </p>
+              </div>
+              <div className=" my-4 flex flex-col justify-center items-center">
+                <img
+                  className="w-2/4 object-contain"
+                  src="/assets/images/services/bottom/3.png"
+                  alt=""
+                />
+                <p className="text-2xl w-52 my-4 text-center  bg-darkblue text-white px-6 py-1 rounded-md border-2 border-gray-400">
+                  BLOGS
+                </p>
+              </div>
+              <div className=" my-4 flex flex-col justify-center items-center">
+                <img
+                  className="w-2/4 object-contain"
+                  src="/assets/images/services/bottom/4.png"
+                  alt=""
+                />
+                <p className="text-2xl my-4 w-52 text-center  bg-darkblue text-white px-6 py-1 rounded-md border-2 border-gray-400">
+                  DISCOUNT COUPONS
+                </p>
+              </div>
+              <div className=" my-4 flex flex-col justify-center items-center">
+                <img
+                  className="w-2/4 object-contain"
+                  src="/assets/images/services/bottom/5.png"
+                  alt=""
+                />
+                <p className="text-2xl my-4 w-52 text-center  bg-darkblue text-white px-6 py-1 rounded-md border-2 border-gray-400">
+                  PACKAGE DEAL
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="w-5/12">
