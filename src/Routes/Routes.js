@@ -11,6 +11,7 @@ import ServicesDetails from "../Pages/Services/ServicesDetails";
 import Profile from "../Pages/Profile/Profile";
 import Bookings from "../Pages/Profile/Bookings";
 import BookingDetails from "../Pages/Profile/BookingDetails";
+import PartnerWithUs from "../Pages/PartnerWithUs";
 
 const Routes = () => {
   return (
@@ -20,6 +21,7 @@ const Routes = () => {
         <Route path="/login" exact component={Login} />
         <Route path="/services/:id" exact component={ServicesDetails} />
         <Route path="/packages" exact component={Packages} />
+        <Route path="/partner-with-us" exact component={PartnerWithUs} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/amc" exact component={Amc} />
 

@@ -198,7 +198,7 @@ const Navbar = () => {
               MobHidden="true"
               Icon={FaHandshake}
               Name="Partner with us"
-              To="/"
+              To="/partner-with-us"
               Color="#ffcc29"
             />{" "}
             <AuthNavItem To="/login" Name="Login" DesktopHidden="true" />
