@@ -26,6 +26,9 @@ module.exports = {
         sidenavactive: "#2B4F60",
         darkYellow: "rgb(251, 178, 47)",
       },
+      borderRadius: {
+        "4xl": "2rem",
+      },
     },
   },
   variants: {

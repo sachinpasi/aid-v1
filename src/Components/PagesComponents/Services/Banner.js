@@ -23,6 +23,7 @@ const Banner = ({ Data }) => {
   useEffect(() => {
     setisBookButtonPressed(showWidget);
   }, [showWidget]);
+
   return (
     <section
       style={{

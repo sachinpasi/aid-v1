@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API } from "../../API";
 import { BOOKSERVICE } from "../../Redux/_features/_serviceBookingSlice";
@@ -21,6 +21,7 @@ const BookingWidget = ({ Top }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(selectUser);
+  const { id } = useParams();
 
   const Input = ({ label, register, required, placeholder, type }) => (
     <input
