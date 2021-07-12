@@ -112,7 +112,10 @@ const Steps = ({ Data }) => {
             </div>
 
             <div className="flex justify-start items-center flex-wrap">
-              <div className=" my-4 flex flex-col justify-center items-center">
+              <Link
+                to={`/services/${Data?.id}/technicians`}
+                className=" my-4 flex flex-col justify-center items-center"
+              >
                 <img
                   className="w-2/4 object-contain"
                   src="/assets/images/services/bottom/1.png"
@@ -121,7 +124,7 @@ const Steps = ({ Data }) => {
                 <p className="text-2xl w-52 my-4 text-center  bg-darkblue text-white px-6 py-1 rounded-md border-2 border-gray-400">
                   TECHNICIANS
                 </p>
-              </div>
+              </Link>
               <div className=" my-4 flex flex-col justify-center items-center">
                 <img
                   className="w-2/4 object-contain"

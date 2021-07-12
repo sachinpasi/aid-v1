@@ -14,7 +14,7 @@ const Packages = () => {
           </h3>
         </div>
 
-        <div className="w-11/12 h-full grid grid-cols-3 gap-10 mb-8">
+        <div className="w-11/12 h-full grid grid-cols-1  lg:grid-cols-3 gap-10 mb-8">
           <Card
             Name="GREEN"
             Visit="999/20 VISITS"
@@ -32,7 +32,7 @@ const Packages = () => {
               "Service call attendance on priorty",
               "Cover all Service & Repair Charges",
             ]}
-            ServiceCovered="AC,LED TV,Washing Machine,It,Electrical,Plumber,Carpenter,Gyser"
+            ServiceCovered="AC,LED TV,Washing Machine,It,Electrical,Plumber,Gyser"
           />
           <Card
             Name="GREEN++"
@@ -42,7 +42,7 @@ const Packages = () => {
               "Service call attendance on priorty",
               "Cover all Service & Repair Charges",
             ]}
-            ServiceCovered="AC,LED TV,Washing Machine,It,Electrical,Plumber,Carpenter,Gyser"
+            ServiceCovered="AC,LED TV,Washing Machine,It,Electrical,Plumber,Gyser"
           />
         </div>
       </div>
@@ -54,20 +54,14 @@ export default Packages;
 
 //
 
-const Card = ({ Name, Visit, ServiceCovered, TagLine, Points }) => (
-  <div
-    style={{
-      width: "410px",
-      height: "400px",
-    }}
-    className=" "
-  >
+const Card = ({ Name, Visit, ServiceCovered, Points }) => (
+  <div className=" w-full h-auto ">
     <div className="flex justify-end">
       <div
         style={{
           background: "#47c289",
         }}
-        className="w-2/5 h-9 rounded-t-4xl rounded-l-4xl "
+        className="w-2/5 h-7 lg:h-9 rounded-t-4xl rounded-l-4xl "
       ></div>
     </div>
     <div
@@ -91,25 +85,25 @@ const Card = ({ Name, Visit, ServiceCovered, TagLine, Points }) => (
         }}
         className="w-full h-full flex flex-col justify-center items-center text-darkblue   "
       >
-        <p className="text-5xl font-semibold">{Name}</p>
+        <p className="text-3xl lg:text-5xl font-semibold">{Name}</p>
         <p className="text-2xl font-semibold">&#8377; {Visit}</p>
         <p
           style={{
             fontFamily: "Uniform Bold",
           }}
-          className="text-7xl font-black"
+          className=" text-5xl lg:text-7xl font-black"
         >
           CALL NOW !
         </p>
 
-        <p className="text-xl w-10/12 text-center font-medium leading-5 ">
+        <p className=" text-base lg:text-xl w-11/12 text-center font-medium leading-5 ">
           {ServiceCovered ? (
             <>
               {" "}
               Service Covered : <br></br>{" "}
               <span
                 style={{ fontSize: "18px", lineHeight: "10px" }}
-                className=" text-center w-auto font-thin "
+                className=" text-center  font-thin w-full "
               >
                 {ServiceCovered}
               </span>
@@ -121,13 +115,13 @@ const Card = ({ Name, Visit, ServiceCovered, TagLine, Points }) => (
 
         <ul
           style={{ listStyleType: "circle" }}
-          className="bg-darkblue py-1 px-7 my-2 rounded-2xl "
+          className="bg-darkblue py-1 px-7 my-2 rounded-xl "
         >
           {Points?.map((item) => (
             <li className="text-white leading-5">{item}</li>
           ))}
         </ul>
-        <div className="flex my-1 justify-between items-center w-3/5">
+        <div className="flex my-1 justify-between items-center w-10/12 lg:w-3/5">
           <button className="bg-white text-darkblue font-semibold text-lg tracking-wide px-5 rounded-lg border-4 border-darkblue w-24">
             DETAILS
           </button>
@@ -141,7 +135,7 @@ const Card = ({ Name, Visit, ServiceCovered, TagLine, Points }) => (
           style={{
             background: "#47c289",
           }}
-          className="w-9 h-28 rounded-b-4xl "
+          className=" w-7 lg:w-9 h-28 rounded-b-4xl "
         ></div>
       </div>
     </div>

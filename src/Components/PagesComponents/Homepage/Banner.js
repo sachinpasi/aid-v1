@@ -232,7 +232,7 @@ const Banner = () => {
               className="w-full bg-gray-100 h-8 rounded-sm text-xl my-0.5  px-2 uppercase "
             >
               <option selected disabled hidden>
-                Service Type
+                Appliance Type
               </option>
               {Services.map((item) => (
                 <option key={item.id} value={item.id}>
@@ -275,7 +275,7 @@ const Banner = () => {
                     className="w-full bg-gray-100 h-8 rounded-sm text-xl my-0.5  px-2 uppercase "
                   >
                     <option selected disabled hidden>
-                      Please Select A Child Service
+                      Service Type
                     </option>
                     {ChildServices?.child.map((item) => (
                       <option key={item.id} value={item.id}>
